@@ -22,7 +22,8 @@ export const Navigation = () => {
     const [isHovering, setIsHovering] = useState(
         false
     );
-
+        console.log(isHovering);
+        
     const onHoverHome = () => {
         setIsHovering(true);
         play();
