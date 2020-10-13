@@ -7,10 +7,12 @@ type Tplanet = {
 
 export const Planet = ({ planet }: Tplanet) => {
     return (
-        <div className="card">
-        <h3>{planet.name}</h3>
-        <p>Population - {planet.population}</p>
-        <p>Terrain - {planet.terrain}</p>
+        <div className="cardCharacters">
+        <h3 className="personName">{planet.name}</h3>
+        <p className="birth">Population  - {planet.population}</p>
+        <p className="gender"> Terrain - {planet.terrain}</p>
+        <p className="climate">Climate - {planet.climate}</p>
+
     </div>
     )
 }

@@ -1,0 +1,116 @@
+.Starships-div{
+    background: url("../images/starships.jpg");
+    
+    text-align: center;
+    background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.titleCharacters {
+  color: #e710ee;
+  font-size: 3rem;
+  padding:1em;
+  font-family: "Anton", sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.buttonNavigationCharacters {
+  font-family: "Anton", sans-serif;
+  font-size: 1.5rem;
+  padding: 0.5em 1.3em;
+  color: rgb(253, 247, 252);
+  background:rgb(243, 26, 196);
+  /* cursor: pointer; */
+  border-radius: 5px;
+}
+
+.buttonNavigationCharacters:hover {
+  cursor: pointer;
+  color:pink;
+ background: rgb(243, 243, 243);
+}
+.cardcontainer{
+  
+  width: 40%;
+  margin: 0 auto;
+}
+.cardCharacters {
+ 
+
+  width: 100%;
+  padding: 8px 16px;
+  background: rgba(189, 98, 189, 0.8);
+  margin: 1em 0;
+  border-radius: 20px;
+  font-family: "Anton", sans-serif;
+}
+.personName{
+  color: rgb(251, 255, 11);
+  padding:0.5em 1em 0;font-size:2rem;
+ 
+  
+}
+.birth {
+  font-family: "Anton", sans-serif;
+  margin: 6px 0;
+  color: rgb(241, 240, 240);
+  padding:0em 1em 0;font-size:1rem;
+}
+.gender{
+  font-family: "Anton", sans-serif;
+  margin: 6px 0;
+  color: rgb(241, 240, 240);
+  padding:0em 1em 0;font-size:1rem;
+}
+.climate{
+  margin: 6px 0;
+  color: rgb(241, 240, 240);
+  padding:0em 1em 0;font-size:1rem;
+}
+.page-number{
+  font-size: 2rem;
+  padding: 1em;
+  font-family: "Anton", sans-serif;
+  color: white;
+}
+
+
+@media (max-width:800px){
+  .cardcontainer{
+  
+    width: 80%;
+   
+  }
+}
+
+@media (max-width:600px){
+.buttonsDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;padding:0;
+}
+
+  .cardcontainer{
+  
+    width: 90%;
+   
+  }
+  .titleCharacters {
+    color: #e710ee;
+    font-size: 2.2rem;
+    padding:1em;
+    font-family: "Anton", sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  .page-number{
+    font-size: .9rem;
+   
+    font-family: "Anton", sans-serif;
+    color: white;
+  }
+}

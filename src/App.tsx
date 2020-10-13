@@ -1,26 +1,21 @@
-import React, { useState } from 'react';
-import { Navbar } from './components/Navbar';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom'
+import { StartPage } from './components/StartPage';
 import { People } from './components/People';
 import { Planets } from './components/Planets';
-import {ReactQueryDevtools} from 'react-query-devtools'
-
+import { Starships } from './components/Starships';
 
 function App() {
-
-  const [page, setPage] = useState<string>('people')
-
-
-
   return (
-    <>
-    <div className="App">
-      <h1>Star Wars</h1>
-      <Navbar setPage={setPage} />
-      <div className="content"></div>
-      {page === "people" ? <People /> : <Planets />}
+    <div>
+      <Switch>
+        <Route exact path="/"><StartPage /></Route>
+        <Route path="/characters"><People /></Route>
+        <Route path="/planets"><Planets /></Route>
+        <Route path="/starships"><Starships /></Route>
+      </Switch>
+
     </div>
-    <ReactQueryDevtools initialIsOpen={false}/>
-    </>
   );
 }
 

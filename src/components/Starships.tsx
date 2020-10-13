@@ -1,41 +1,54 @@
 import React, { useState } from 'react'
 import { QueryStatus, usePaginatedQuery } from 'react-query'
-import { Person } from './Person';
-import '../styles/Characters.css'
-
-export interface ResultPeople {
-    birth_year: string;
-    created: string;
-    edited: string;
-    eye_color: string;
-    films: string[]
-    gender: string;
-    hair_color: string;
-    height: string;
-    homeworld: string;
-    mass: string
+import {Starship} from'./Starship'
+import '../styles/Starships.css'
+export interface Result {
     name: string;
-    skin_color: string;
+    model: string;
+    manufacturer: string
+    cost_in_credits: string
+    length: string[]
+    max_atmosphering_speed: string
+    crew: string
+    passengers: string
+    cargo_capacity: string
+    consumables: string[]
+    hyperdrive_rating: string
+    pilots: string
+   
 }
 
-type fetchResults = {
-    results: ResultPeople[],
+type results = {
+    results: Result[],
     status: QueryStatus,
     next: string
 }
 
-const fetchThemPeepz = async (key: string, page: string): Promise<fetchResults> => {
 
-    const endpoint: string = `https://swapi.dev/api/people/?page=${page}`;
-    const data: fetchResults = await (await fetch(endpoint)).json()
+
+
+const fetchStarShips = async (key: string, page: string): Promise<results> => {
+
+
+    const endpoint: string = `https://swapi.dev/api/starships/?page=${page}`;
+    const data: results = await (await fetch(endpoint)).json()
     return data
 }
-export const People = (): JSX.Element => {
+export const Starships = (): JSX.Element => {
+
     const [page, setPages] = useState(1);
-    const { resolvedData, latestData, status } = usePaginatedQuery(['people', page], fetchThemPeepz);
+
+    const {
+        resolvedData,
+        latestData,
+        status
+    } = usePaginatedQuery(['starships', page], fetchStarShips);
+
+
     return (
-        <div className="Character-div">
-            <h2 className="titleCharacters">CHARACTERS</h2>
+        <div className="Starships-div">
+            <h2 className="titleCharacters">Starships</h2>
+
             {status === 'loading' && (
                 <div>Loading data...</div>
             )}
@@ -43,10 +56,10 @@ export const People = (): JSX.Element => {
                 <div>Error fetching data</div>
             )}
             {status === 'success' && (
-
                 <>
                 <div className="buttonsDiv">
-                      <button className="buttonNavigationCharacters"
+
+                    <button className="buttonNavigationCharacters"
                         onClick={() => {
                             if (page > 1) {
                                 setPages(prevState => prevState - 1)
@@ -60,11 +73,9 @@ export const People = (): JSX.Element => {
                         disabled={!latestData || !latestData.next}
                     >Next Page</button>
                 </div>
-                  
-
                     <div className="cardcontainer">
-                        {resolvedData?.results.map((people: ResultPeople) => {
-                            return <Person key={people.name} person={people} />
+                        {resolvedData?.results.map((starship: Result) => {
+                            return <Starship key={starship.name} starship={starship} />
                         })}</div>
                 </>
             )}

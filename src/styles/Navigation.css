@@ -1,0 +1,103 @@
+.navbarNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.navbarButton {
+  background-color: #4caf50;
+  border: 1px solid yellow;
+  color: white;
+  padding: 4.5em;
+  text-decoration: none;
+  font-size: 0.5em;
+  margin: 1em 5em;
+  border-radius: 50%;
+}
+
+.navbarButton:hover{
+    cursor: pointer;
+}
+
+.navbarButton:focus {
+  outline: none;
+}
+
+.links-div{
+    position: relative;
+}
+.hide{
+  display: none;
+}
+.navbarButton:hover + .hide{
+    position:absolute;
+    left: 1.2em;
+  display:block;
+  font-family: 'Megrim', cursive;
+  color: rgb(230, 231, 236);
+  letter-spacing: 10px;
+  cursor: pointer;
+}
+.homePage {
+    background: url("../images/DSI_hdapproach.jpg");
+   
+}
+
+.characters {
+    background: url("../images/Tatooine.png");
+}
+
+.planets {
+    background: url("../images/Dagobah_ep3.jpg");
+}
+.starships {
+    background: url("../images/Hoth.png");
+}
+.homePage,
+.characters,
+.planets,
+.starships
+{
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@keyframes NavbarButton-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .navbarButton {
+    animation: NavbarButton-spin infinite 30s linear;
+  }
+}
+
+@media (max-width:600px){
+  .navbarNav {
+    display: flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items: center;
+    min-height: 100%;;
+   
+  }
+  .navbarButton:hover + .hide{
+     
+   
+  display:none;
+ 
+}
+  .hide{
+    display: block;
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    letter-spacing:5px;
+  }
+}

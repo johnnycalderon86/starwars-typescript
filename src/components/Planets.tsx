@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { QueryStatus, usePaginatedQuery } from 'react-query'
 import { Planet } from './Planet';
-
+import '../styles/Planets.css'
 export interface Result {
     climate: string;
     created: string;
@@ -47,8 +47,8 @@ export const Planets = (): JSX.Element => {
 
 
     return (
-        <div>
-            <h2>Planets</h2>
+        <div className="Planets-div">
+            <h2 className="titleCharacters">Planets</h2>
 
             {status === 'loading' && (
                 <div>Loading data...</div>
@@ -58,7 +58,8 @@ export const Planets = (): JSX.Element => {
             )}
             {status === 'success' && (
                 <>
-                    <button
+                <div className="buttonsDiv">
+                       <button className="buttonNavigationCharacters"
                         onClick={() => {
                             if (page > 1) {
                                 setPages(prevState => prevState - 1)
@@ -66,12 +67,14 @@ export const Planets = (): JSX.Element => {
                         }}
                         disabled={page === 1}
                     >Previous Page</button>
-                    <span>{page}</span>
-                    <button onClick={() => setPages(prevState => (!latestData || !latestData.next ? prevState : prevState + 1))
+                    <span className="page-number">{page}</span>
+                    <button  className="buttonNavigationCharacters" onClick={() => setPages(prevState => (!latestData || !latestData.next ? prevState : prevState + 1))
                     }
                         disabled={!latestData || !latestData.next}
                     >Next Page</button>
-                    <div>
+                </div>
+                 
+                    <div className="cardcontainer">
                         {resolvedData?.results.map((planet: Result) => {
                             return <Planet key={planet.name} planet={planet} />
                         })}</div>
